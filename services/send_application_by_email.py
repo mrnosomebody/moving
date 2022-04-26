@@ -1,0 +1,1 @@
+from django.core.mail import mail_admins

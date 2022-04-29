@@ -137,7 +137,7 @@
                             <path d="M22,104.5 C22,150.063492 58.9365081,187 104.5,187 C150.063492,187 187,150.063492 187,104.5"
                                   id="bottom"></path>
                         </g>
-                        <circle cx="105" cy="105" r="62" stroke="currentColor" stroke-width="1" fill="none"/>
+                        <circle cx="105" cy="105" r="62" stroke="currentColor" stroke-width="1" fill="none"></circle>
                         <text width="200" font-size="30" fill="currentColor">
                             <textPath startOffset="50%" text-anchor="middle" alignment-baseline="middle"
                                       xlink:href="#top">
@@ -172,7 +172,7 @@
                             <path d="M22,104.5 C22,150.063492 58.9365081,187 104.5,187 C150.063492,187 187,150.063492 187,104.5"
                                   id="bottom"></path>
                         </g>
-                        <circle cx="105" cy="105" r="62" stroke="currentColor" stroke-width="1" fill="none"/>
+                        <circle cx="105" cy="105" r="62" stroke="currentColor" stroke-width="1" fill="none"></circle>
                         <text width="200" font-size="30" fill="currentColor">
                             <textPath startOffset="50%" text-anchor="middle" alignment-baseline="middle"
                                       xlink:href="#top">
@@ -1971,10 +1971,11 @@
                                        placeholder="Enter your name" required>
                             </div>
 
-                            {#                            <div class="input-field">#}
-                            {#                                <label>Email</label>#}
-                            {#                                <input type="text" placeholder="Enter your email" required>#}
-                            {#                            </div>#}
+                            <div class="input-field">
+                                <label for="{{ form.email.name }}">Email</label>
+                                <input id="{{ form.email.name }}" name="{{ form.email.name }}" type="text"
+                                       placeholder="Enter your email (not required)">
+                            </div>
 
                             <div class="input-field">
                                 <label for="{{ form.phone.name }}">Mobile Number</label>
@@ -1982,36 +1983,65 @@
                                        placeholder="Enter mobile number" required>
                             </div>
 
-
-                            <div class="input-field" id="adr">
-                                <label for="{{ form.address.name }}">{{ form.address.label }}</label>
-                                <input id="{{ form.address.name }}" name="{{ form.address.name }}" type="text"
-                                       placeholder="Enter your address" required>
-                            </div>
-
-                            <div class="input-field">
-                                <label for="{{ form.block.name }}">{{ form.block.label }}</label>
-                                <input id="{{ form.block.name }}" name="{{ form.block.name }}" type="number"
-                                       placeholder="Enter block number" required>
-                            </div>
-
-                            <div class="input-field">
-                                <label for="{{ form.city.name }}">{{ form.city.label }}</label>
-                                <input id="{{ form.city.name }}" name="{{ form.city.name }}" type="text"
-                                       placeholder="Enter your city" required>
-                            </div>
-
-                            <div class="input-field">
-                                <label for="{{ form.zip.name }}">{{ form.zip.label }}</label>
-                                <input id="{{ form.zip.name }}" name="{{ form.zip.name }}" type="text"
-                                       placeholder="Enter your zip code" required>
-                            </div>
                             <div class="input-field">
                                 <label for="{{ form.date.name }}">Date</label>
                                 <input id="{{ form.date.name }}" name="{{ form.date.name }}"
                                        type="date"
                                        placeholder="Enter date you want to move" required>
                             </div>
+
+                            <p style="width: 100%; font-weight: bold;margin-top: 20px;margin-bottom: 5px;">From</p>
+
+                            <div class="input-field" id="adr_from">
+                                <label for="{{ form.address_from.name }}">{{ form.address_from.label }}</label>
+                                <input id="{{ form.address_from.name }}" name="{{ form.address_from.name }}" type="text"
+                                       placeholder="Enter the address you are leaving" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="{{ form.block_from.name }}">{{ form.block_from.label }}</label>
+                                <input id="{{ form.block_from.name }}" name="{{ form.block_from.name }}" type="number"
+                                       placeholder="Enter block number" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="{{ form.city_from.name }}">{{ form.city_from.label }}</label>
+                                <input id="{{ form.city_from.name }}" name="{{ form.city_from.name }}" type="text"
+                                       placeholder="Enter the city you are leaving" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="{{ form.zip_from.name }}">{{ form.zip_from.label }}</label>
+                                <input id="{{ form.zip_from.name }}" name="{{ form.zip_from.name }}" type="text"
+                                       placeholder="Enter your zip code" required>
+                            </div>
+
+                            <p style="width: 100%; font-weight: bold; margin-top: 20px;margin-bottom: 5px;">To</p>
+                            {#================================================================#}
+                            <div class="input-field" id="adr_to">
+                                <label for="{{ form.address_to.name }}">{{ form.address_to.label }}</label>
+                                <input id="{{ form.address_to.name }}" name="{{ form.address_to.name }}" type="text"
+                                       placeholder="Enter destination address" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="{{ form.block_to.name }}">{{ form.block_to.label }}</label>
+                                <input id="{{ form.block_to.name }}" name="{{ form.block_to.name }}" type="number"
+                                       placeholder="Enter block number" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="{{ form.city_to.name }}">{{ form.city_to.label }}</label>
+                                <input id="{{ form.city_to.name }}" name="{{ form.city_to.name }}" type="text"
+                                       placeholder="Enter the city you are going to" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="{{ form.zip_to.name }}">{{ form.zip_to.label }}</label>
+                                <input id="{{ form.zip_to.name }}" name="{{ form.zip_to.name }}" type="text"
+                                       placeholder="Enter destionation zip code" required>
+                            </div>
+
                             <button id="submitApplication" type="submit" style="margin: 2% auto;">Submit</button>
                         </div>
                     </div>

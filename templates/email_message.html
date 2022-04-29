@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="display: flex;">
+    <div class="title" style="font-weight: bold; font-size: 21px">Full name:</div>
+    <div class="content" style="font-size: 21px">{{ data.name }}</div>
+</div>
+
+<div style="display: flex;">
+    {% if data.email %}
+        <div class="title" style="font-weight: bold; font-size: 21px">Email:</div>
+        <div class="content" style="font-size: 21px">{{ data.email }}</div>
+    {% endif %}
+</div>
+
+<div style="display: flex;">
+    <div class="title" style="font-weight: bold; font-size: 21px">Mobile number:</div>
+    <div class="content" style="font-size: 21px">{{ data.phone }}</div>
+</div>
+
+<div style="display: flex;">
+    <div class="title" style="font-weight: bold; font-size: 21px">Chosen date:</div>
+    <div class="content" style="font-size: 21px">{{ data.date }}</div>
+</div>
+
+<p style="font-weight: bold; font-size: 21px">Start Address</p>
+
+<div style="margin-left: 70px;">
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Address:</div>
+        <div class="content" style="font-size: 21px">{{ data.address_from }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Block number:</div>
+        <div class="content" style="font-size: 21px">{{ data.block_from }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">City:</div>
+        <div class="content" style="font-size: 21px">{{ data.city_from }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Zip code:</div>
+        <div class="content" style="font-size: 21px">{{ data.zip_from }}</div>
+    </div>
+</div>
+<p style="font-weight: bold; font-size: 21px">End Address: </p>
+
+<div style="margin-left: 70px;">
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Address:</div>
+        <div class="content" style="font-size: 21px">{{ data.address_to }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Block number:</div>
+        <div class="content" style="font-size: 21px">{{ data.block_to }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">City:</div>
+        <div class="content" style="font-size: 21px">{{ data.city_to }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Zip code:</div>
+        <div class="content" style="font-size: 21px">{{ data.zip_to }}</div>
+    </div>
+</div>
+</body>
+</html>

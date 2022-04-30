@@ -3,20 +3,28 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ApplicationForm
 from services.send_application_by_email import send_email
+from captcha_config import SITE_KEY
+from services.captcha_is_valid import check_captcha
 
 
 def main(request):
+    form = ApplicationForm()
+
     if request.method == 'POST':
         form = ApplicationForm(request.POST)
+        print(form.errors)
         if form.is_valid():
             data = form.cleaned_data
-            try:
-                send_email(data)
-                messages.success(request, "Success")
-                return redirect('main')
-            except smtplib.SMTPException:
-                messages.error(request, "Error")
+            captcha_is_valid = check_captcha(request)
+            if captcha_is_valid:
+                try:
+                    send_email(data)
+                    messages.success(request, "Success")
+                    return redirect('main')
+                except smtplib.SMTPException:
+                    messages.error(request, "Server error occurred, we didn't get your application")
+            else:
+                messages.error(request, "Invalid Captcha, try again, please")
         else:
             messages.error(request, "Error")
-    form = ApplicationForm()
-    return render(request, 'main.html', {'form': form})
+    return render(request, 'main.html', {'form': form, 'captcha_key': SITE_KEY})

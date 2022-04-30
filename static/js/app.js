@@ -228,7 +228,6 @@ class Notification {
 
         const box = this.newEl("div");
         box.className = `${block}__box`;
-        console.log(box)
         note.appendChild(box);
 
         const content = this.newEl("div");
@@ -331,5 +330,3 @@ function toggleAcc() {
     this.classList.toggle("accordion__item--active");
   }
 }
-
-

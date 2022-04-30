@@ -2,3 +2,7 @@
 /db.sqlite3
 email_config.py
 captcha_config.py
+
+.idea
+
+moving/prod_settings.py

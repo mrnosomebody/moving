@@ -8,11 +8,14 @@ from services.captcha_is_valid import check_captcha
 
 
 def main(request):
+    return render(request, 'main.html')
+
+
+def moving(request):
     form = ApplicationForm()
 
     if request.method == 'POST':
         form = ApplicationForm(request.POST)
-        print(form.errors)
         if form.is_valid():
             data = form.cleaned_data
             captcha_is_valid = check_captcha(request)
@@ -27,4 +30,9 @@ def main(request):
                 messages.error(request, "Invalid Captcha, try again, please")
         else:
             messages.error(request, "Error")
-    return render(request, 'main.html', {'form': form, 'captcha_key': SITE_KEY})
+
+    return render(request, 'moving.html', {'form': form, 'captcha_key': SITE_KEY})
+
+
+def delivery(request):
+    pass

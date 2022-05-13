@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moving</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'css/moving.css' %}">
+</head>
+<body>
+    <section>
+        <a href="{% url 'main' %}" class="back__btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span id="home__span">Home</span>
+        </a>
+        <div class="flex">
+            <div class="left">
+                <img src="{% static 'images/k1.svg' %}" alt="">
+                <p class="title" style="margin-top: 5%">Pricing</p>
+                <div class="pricing__card">
+                    <div class="pricing__card__left">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <div class="pricing__card__center">
+                        <p><b>Small studio</b></p>
+                        <p>2 loaders</p>
+                    </div>
+                    <div class="pricing__card__right">
+                        $110
+                    </div>
+                </div>
+                <div class="pricing__card">
+                    <div class="pricing__card__left">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                    </div>
+                    <div class="pricing__card__center">
+                        <p><b>One bedroom</b></p>
+                        <p>2 loaders</p>
+                    </div>
+                    <div class="pricing__card__right">
+                        $130
+                    </div>
+                </div>
+                <div class="pricing__card">
+                    <div class="pricing__card__left">
+                        <i class="fa-solid fa-truck-moving"></i>
+                    </div>
+                    <div class="pricing__card__center">
+                        <p><b>Two bedroom</b></p>
+                        <p>2 loaders</p>
+                    </div>
+                    <div class="pricing__card__right">
+                        $150
+                    </div>
+                </div>
+                <div class="pricing__card">
+                    <div class="pricing__card__left">
+                        <i class="fa-solid fa-people-carry-box"></i>
+                    </div>
+                    <div class="pricing__card__center">
+                        <p><b>House</b></p>
+                        <p>3 loaders</p>
+                    </div>
+                    <div class="pricing__card__right">
+                        $180
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="description__area">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eius harum laudantium molestiae
+                    nisi perspiciatis sint voluptates. Culpa excepturi id incidunt ostrum placeat qui ullam vel
+                    vitae. Dolorem, ullam.
+                </div>
+                <!--=============== CONTACT ===============-->
+                <svg display="none">
+                    <symbol id="error" viewBox="0 0 32 32">
+                        <circle r="15" cx="16" cy="16" fill="none" stroke="hsl(13,90%,55%)" stroke-width="2"></circle>
+                        <line x1="10" y1="10" x2="22" y2="22" stroke="hsl(13,90%,55%)" stroke-width="2"
+                              stroke-linecap="round"></line>
+                        <line x1="22" y1="10" x2="10" y2="22" stroke="hsl(13,90%,55%)" stroke-width="2"
+                              stroke-linecap="round"></line>
+                    </symbol>
+                    <symbol id="success" viewBox="0 0 32 32">
+                        <circle r="15" cx="16" cy="16" fill="none" stroke="hsl(93,90%,40%)" stroke-width="2"></circle>
+                        <polyline points="9,18 13,22 23,12" fill="none" stroke="hsl(93,90%,40%)" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"></polyline>
+                    </symbol>
+                    <symbol id="warning" viewBox="0 0 32 32">
+                        <polygon points="16,1 31,31 1,31" fill="none" stroke="hsl(33,90%,55%)" stroke-width="2"
+                                 stroke-linecap="round" stroke-linejoin="round"></polygon>
+                        <line x1="16" y1="12" x2="16" y2="20" stroke="hsl(33,90%,55%)" stroke-width="2"
+                              stroke-linecap="round"></line>
+                        <line x1="16" y1="25" x2="16" y2="25" stroke="hsl(33,90%,55%)" stroke-width="3"
+                              stroke-linecap="round"></line>
+                    </symbol>
+                </svg>
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div id="errorTrigger"></div>
+                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div id="successTrigger"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <form action="" method="post" style="margin-top: 5%;">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                    <div class="form__container">
+                    <div class="title">Submit Application</div>
+                        <div class="form first">
+                            <div class="details personal">
+                                <div class="fields">
+                                    <div class="input-field">
+                                        <label for="{{ form.name.name }}">Full Name</label>
+                                        <input id="{{ form.name.name }}" name="{{ form.name.name }}" type="text"
+                                               placeholder="Enter your name" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.email.name }}">Email</label>
+                                        <input id="{{ form.email.name }}" name="{{ form.email.name }}" type="email"
+                                               placeholder="Enter your email (not required)">
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.phone.name }}">Mobile Number</label>
+                                        <input id="{{ form.phone.name }}" name="{{ form.phone.name }}" type="tel"
+                                               placeholder="Enter mobile number" required>
+                                        {% if form.phone.errors %}
+                                            <div style="color: red">
+                                                Enter a valid phone number (e.g. 1-(999)-999-9999)
+                                            </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.date.name }}">Date</label>
+                                        <input id="{{ form.date.name }}" name="{{ form.date.name }}"
+                                               type="date"
+                                               placeholder="Enter date you want to move" required>
+                                    </div>
+
+                                    <p style="width: 100%; font-weight: bold;margin-top: 20px;margin-bottom: 5px;">From</p>
+
+                                    <div class="input-field" id="adr_from">
+                                        <label for="{{ form.address_from.name }}">{{ form.address_from.label }}</label>
+                                        <input id="{{ form.address_from.name }}" name="{{ form.address_from.name }}"
+                                               type="text"
+                                               placeholder="Enter the address you are leaving" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.block_from.name }}">{{ form.block_from.label }}</label>
+                                        <input id="{{ form.block_from.name }}" name="{{ form.block_from.name }}"
+                                               type="number"
+                                               placeholder="Enter block number" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.city_from.name }}">{{ form.city_from.label }}</label>
+                                        <input id="{{ form.city_from.name }}" name="{{ form.city_from.name }}" type="text"
+                                               placeholder="Enter the city you are leaving" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.zip_from.name }}">{{ form.zip_from.label }}</label>
+                                        <input id="{{ form.zip_from.name }}" name="{{ form.zip_from.name }}" type="number"
+                                               placeholder="Enter your zip code" required>
+                                    </div>
+
+                                    <p style="width: 100%; font-weight: bold; margin-top: 20px;margin-bottom: 5px;">To</p>
+
+                                    <div class="input-field" id="adr_to">
+                                        <label for="{{ form.address_to.name }}">{{ form.address_to.label }}</label>
+                                        <input id="{{ form.address_to.name }}" name="{{ form.address_to.name }}" type="text"
+                                               placeholder="Enter destination address" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.block_to.name }}">{{ form.block_to.label }}</label>
+                                        <input id="{{ form.block_to.name }}" name="{{ form.block_to.name }}" type="number"
+                                               placeholder="Enter block number" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.city_to.name }}">{{ form.city_to.label }}</label>
+                                        <input id="{{ form.city_to.name }}" name="{{ form.city_to.name }}" type="text"
+                                               placeholder="Enter the city you are going to" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="{{ form.zip_to.name }}">{{ form.zip_to.label }}</label>
+                                        <input id="{{ form.zip_to.name }}" name="{{ form.zip_to.name }}" type="number"
+                                               placeholder="Enter destionation zip code" required>
+                                    </div>
+
+                                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                    <div class="g-recaptcha"
+                                         data-sitekey="{{ captcha_key }}">
+                                    </div>
+
+                                    <button id="submitApplication" type="submit" style="margin: 2% auto;">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+<script src="{% static 'js/notifications.js' %}"></script>
+</body>
+</html>

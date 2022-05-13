@@ -1,0 +1,116 @@
+@import "base.css";
+@import "form.css";
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+section {
+    padding-top: 5%;
+}
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.left {
+    width: 35%;
+    padding: 0 5%;
+}
+
+.right {
+    width: 65%;
+    padding: 0 5%;
+}
+
+.title {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 3%;
+}
+
+.pricing__card {
+    margin-top: 5%;
+    width: 100%;
+    height: 120px;
+    border: 2px solid #335075;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.back__btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 26px;
+    color: #335075;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #335075;
+    border-radius: 14px;
+    padding: 10px;
+}
+
+#home__span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.pricing__card__left {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.pricing__card__center {
+    height: 100%;
+    width: 60%;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.pricing__card__right {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.description__area {
+    font-size: 28px;
+    padding: 0 4%;
+}
+
+#submitApplication {
+    background-color: #335075;
+    color: #f9f9f9;
+    padding: 10px 15px;
+    width: fit-content;
+    border: none;
+    border-radius: 18px;
+    font-size: 26px;
+    cursor: pointer;
+    font-family: var(--body-font);
+    font-weight: bold;
+    margin: 30px 70px;
+}
+

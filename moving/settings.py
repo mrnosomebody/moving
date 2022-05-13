@@ -92,7 +92,7 @@ EMAIL_HOST_PASSWORD = email_config.EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True
 RECIPIENTS = email_config.RECIPIENTS
 
-try:
-    from .local_settings import *
-except ImportError:
-    from .prod_settings import *
+# try:
+#     from .prod_settings import *
+# except ImportError:
+from .local_settings import *

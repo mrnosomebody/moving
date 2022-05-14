@@ -11,13 +11,16 @@ def send_email(data):
               f"phone: {data['phone'].as_e164}\n" \
               f"date: {data['date']}\n" \
               f"address_from: {data['address_from']}\n" \
-              f"block_from: {data['block_from']}\n" \
               f"city_from: {data['city_from']}\n" \
               f"zip_from: {data['zip_from']}\n" \
               f"address_to: {data['address_to']}\n" \
-              f"block_to: {data['block_to']}\n" \
               f"city_to: {data['city_to']}\n" \
-              f"zip_to: {data['zip_to']}\n"
+              f"zip_to: {data['zip_to']}\n" \
+              f"floor: {data['floor_from']}\n" \
+              f"floor: {data['floor_to']}\n" \
+              f"elevator_pickup: {data['elevator_pickup']}\n" \
+              f"elevator_dropoff: {data['elevator_dropoff']}\n" \
+              f"apart_type: {data['apart_type']}\n"
     from_email = EMAIL_HOST_USER
     recipient_list = RECIPIENTS
     html_message = render_to_string('email_message.html', {'data': data})

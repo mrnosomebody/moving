@@ -18,12 +18,13 @@ def moving(request):
         form = ApplicationForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            print(data)
             captcha_is_valid = check_captcha(request)
             if captcha_is_valid:
                 try:
                     send_email(data)
                     messages.success(request, "Success")
-                    return redirect('main')
+                    return redirect('moving')
                 except smtplib.SMTPException:
                     messages.error(request, "Server error occurred, we didn't get your application")
             else:
@@ -36,3 +37,7 @@ def moving(request):
 
 def delivery(request):
     pass
+
+
+
+

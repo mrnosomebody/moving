@@ -1,5 +1,3 @@
-@import "notification.css";
-
 .form__container {
     position: relative;
     max-width: 900px;
@@ -105,6 +103,7 @@ form .fields .input-field {
     align-items: center;
 }
 
+
 @media (max-width: 750px) {
     .form__container form::-webkit-scrollbar {
         display: none;
@@ -122,6 +121,7 @@ form .fields .input-field {
     .notification {
         position: unset;
     }
+
 }
 
 @media (max-width: 550px) {

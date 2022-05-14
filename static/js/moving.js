@@ -2,41 +2,21 @@
 // let address1Field;
 // let address2Field;
 // let postalField;
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
-
-function scrollActive() {
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight,
-            sectionTop = current.offsetTop - 50,
-            sectionId = current.getAttribute('id')
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        } else {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
-}
-
-window.addEventListener('scroll', scrollActive)
-
-
-/*=============== CHANGE BACKGROUND HEADER ===============*/
-function scrollHeader() {
-    const header = document.getElementById('header')
-    // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
-    if (this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
-}
-
-window.addEventListener('scroll', scrollHeader)
 
 let today = new Date();
 let date = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
 document.querySelector('input[type="date"]').value = date
 document.querySelector('input[type="date"]').min = date
+
+
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+// function scrollHeader() {
+//     const header = document.getElementById('header')
+//     // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
+//     if (this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+// }
+//
+// window.addEventListener('scroll', scrollHeader)
 
 //#############GOOGLE PLACES (AUTOCOMPLETE ADDRESS)#############//
 
@@ -125,19 +105,3 @@ document.querySelector('input[type="date"]').min = date
 //
 // window.initAutocomplete = initAutocomplete;
 
-// select all accordion items
-const accItems = document.querySelectorAll(".accordion__item");
-
-// add a click event for all items
-accItems.forEach((acc) => acc.addEventListener("click", toggleAcc));
-
-function toggleAcc() {
-  // remove active class from all items exept the current item (this)
-  accItems.forEach((item) => item != this ? item.classList.remove("accordion__item--active") : null
-  );
-
-  // toggle active class on current item
-  if (this.classList != "accordion__item--active") {
-    this.classList.toggle("accordion__item--active");
-  }
-}

@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
+<p style="font-weight: bold; font-size: 21px">{{ data.service }} Application</p>
 <div style="display: flex;">
     <div class="title" style="font-weight: bold; font-size: 21px">Full name:</div>
     <div class="content" style="font-size: 21px">{{ data.name }}</div>
@@ -49,11 +44,12 @@
         <div class="title" style="font-weight: bold; font-size: 21px">Zip code:</div>
         <div class="content" style="font-size: 21px">{{ data.zip_from }}</div>
     </div>
-
-    <div style="display: flex;">
-        <div class="title" style="font-weight: bold; font-size: 21px">Elevator:</div>
-        <div class="content" style="font-size: 21px">{{ data.elevator_pickup }}</div>
-    </div>
+    {% if data.service == 'Moving' %}
+        <div style="display: flex;">
+            <div class="title" style="font-weight: bold; font-size: 21px">Elevator:</div>
+            <div class="content" style="font-size: 21px">{{ data.elevator_pickup }}</div>
+        </div>
+    {% endif %}
 </div>
 <p style="font-weight: bold; font-size: 21px">End Address: </p>
 
@@ -84,10 +80,28 @@
     </div>
 </div>
 
-<div style="display: flex;">
+{% if data.service == 'Moving' %}
+    <div style="display: flex;">
         <div class="title" style="font-weight: bold; font-size: 21px">Apartments type:</div>
         <div class="content" style="font-size: 21px">{{ data.apart_type }}</div>
     </div>
+{% endif %}
+
+{% if data.service == 'Delivery' %}
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Large items:</div>
+        <div class="content" style="font-size: 21px">{{ data.large_items }}</div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="title" style="font-weight: bold; font-size: 21px">Medium items:</div>
+        <div class="content" style="font-size: 21px">{{ data.medium_items }}</div>
+    </div>
+{% endif %}
+
+<div style="display: flex;">
+    <div class="title" style="font-weight: bold; font-size: 21px">Promocode:</div>
+    <div class="content" style="font-size: 21px">{{ data.promocode }}</div>
 </div>
+
 </body>
-</html>

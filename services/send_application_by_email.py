@@ -4,8 +4,9 @@ from django.template.loader import render_to_string
 from email_config import EMAIL_HOST_USER, RECIPIENTS
 
 
-def send_email(data):
+def send_email(data, service):
     subject = 'New Application'
+    data['service'] = service
     message = f"name: {data['name']}\n" \
               f"email: {data['email']}\n" \
               f"phone: {data['phone'].as_e164}\n" \
@@ -20,7 +21,16 @@ def send_email(data):
               f"floor: {data['floor_to']}\n" \
               f"elevator_pickup: {data['elevator_pickup']}\n" \
               f"elevator_dropoff: {data['elevator_dropoff']}\n" \
-              f"apart_type: {data['apart_type']}\n"
+              f"service: {service}\n"
+
+    if data.get('promocode'):
+        f"promocode: {data['promocode']}\n"
+    if service == 'Moving':
+        message += f"apart_type: {data['apart_type']}\n"
+    else:
+        message += f"large_items: {data['large_items']}\n" \
+                   f"medium_items: {data['medium_items']}\n"
+
     from_email = EMAIL_HOST_USER
     recipient_list = RECIPIENTS
     html_message = render_to_string('email_message.html', {'data': data})

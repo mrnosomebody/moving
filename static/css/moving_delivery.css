@@ -300,3 +300,29 @@ section {
 }
 
 
+@media screen and (min-width: 767px) {
+    body {
+        margin: 0;
+    }
+
+    .section {
+        padding: 7rem 0 2rem;
+    }
+
+
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+
+}
+
+@media (max-width: 750px) {
+
+    section {
+        height: fit-content;
+        margin-bottom: 10%;
+    }
+
+
+}

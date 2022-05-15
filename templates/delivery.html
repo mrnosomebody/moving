@@ -20,7 +20,7 @@
     </a>
     <div class="flex">
         <div class="left">
-            <img src="{% static 'images/k1.svg' %}" alt="">
+            <img src="{% static 'images/k3.svg' %}" alt="">
             <p class="title" style="margin-top: 5%">Pricing</p>
             <div class="pricing__card">
                 <div class="pricing__card__left">
@@ -172,13 +172,14 @@
                                            placeholder="Enter your floor" required>
                                 </div>
 
+
                                 <div class="input-field">
                                     <label for="{{ form.zip_from.name }}">{{ form.zip_from.label }}</label>
                                     <input id="{{ form.zip_from.name }}" name="{{ form.zip_from.name }}" type="number"
-                                           placeholder="Enter your zip code" required style="height: 52px">
+                                           placeholder="Enter your zip code" required style="height: 52px;">
                                 </div>
 
-                                <div class="input-field">
+                            <div class="input-field">
                                     <label for="">{{ form.elevator_pickup.label }}</label>
                                     <div id="checklist" style="height: 52px;width: 100%;">
                                         <input id="id_elevator_pickup_0" type="radio" name="elevator_pickup"
@@ -204,7 +205,6 @@
                                     <input id="{{ form.city_to.name }}" name="{{ form.city_to.name }}" type="text"
                                            placeholder="Enter the city you are going to" required>
                                 </div>
-
                                 <div class="input-field">
                                     <label for="{{ form.floor_to.name }}">{{ form.floor_to.label }}</label>
                                     <input id="{{ form.floor_to.name }}" name="{{ form.floor_to.name }}"
@@ -233,28 +233,13 @@
                                 </div>
 
                                 <div class="input-field">
-                                    <label for="">{{ form.apart_type.label }}</label>
-                                    <div id="checklist" style="font-size: 18px">
-                                        <input id="id_apart_type_0" type="radio" name="apart_type"
-                                               value="{{ form.apart_type.field.choices.0.0 }}" required>
-                                        <label for="id_apart_type_0">{{ form.apart_type.field.choices.0.0 }}</label>
+                                    <label for="{{ form.large_items.name }}">{{ form.large_items.label }}</label>
+                                    {{ form.large_items }}
+                                </div>
 
-                                        <input id="id_apart_type_1" type="radio" name="apart_type"
-                                               value="{{ form.apart_type.field.choices.1.0 }}" required>
-                                        <label for="id_apart_type_1">{{ form.apart_type.field.choices.1.0 }}</label>
-
-                                        <input id="id_apart_type_2" type="radio" name="apart_type"
-                                               value="{{ form.apart_type.field.choices.2.0 }}" required>
-                                        <label for="id_apart_type_2">{{ form.apart_type.field.choices.2.0 }}</label>
-
-                                        <input id="id_apart_type_3" type="radio" name="apart_type"
-                                               value="{{ form.apart_type.field.choices.3.0 }}" required>
-                                        <label for="id_apart_type_3">{{ form.apart_type.field.choices.3.0 }}</label>
-
-                                        <input id="id_apart_type_4" type="radio" name="apart_type"
-                                               value="{{ form.apart_type.field.choices.4.0 }}" required>
-                                        <label for="id_apart_type_4">{{ form.apart_type.field.choices.4.0 }}</label>
-                                    </div>
+                                <div class="input-field">
+                                    <label for="{{ form.medium_items.name }}">{{ form.medium_items.label }}</label>
+                                    {{ form.medium_items }}
                                 </div>
 
                                 <div class="input-field">
